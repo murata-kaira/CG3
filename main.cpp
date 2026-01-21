@@ -1369,6 +1369,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	directionalLightData->intensity = 1.0f;
 
 
+
+
 	MSG msg{};
 
 	while (msg.message != WM_QUIT) {
@@ -1404,8 +1406,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//ImGui::ShowDemoWindow();
 			ImGui::Begin("Settings");
 			ImGui::ColorEdit4("material", &materialData->color.x, ImGuiColorEditFlags_AlphaPreview);
-			//ImGui::DragFloat("rotate.y", &transform.rotate.y, 0.1f);
-			//ImGui::DragFloat3("transform", &transform.translate.x, 0.1f);
+			ImGui::DragFloat("rotate.y", &transform.rotate.y, 0.1f);
+			ImGui::DragFloat3("transform", &transform.translate.x, 0.1f);
 			ImGui::DragFloat3("light", &directionalLightData->direction.x, 0.01f, -1.0f, 1.0f);
 			ImGui::DragFloat2("Sprite transform", &transformSprite.translate.x, 1.0f);
 			ImGui::Checkbox("useMonsterBall", &useMonsterBall);
