@@ -39,8 +39,10 @@ float32_t4 textureColor = gTexture.Sample(gSampler,input.texcoord);
 if(gMaterial.enableLighting != 0){
 float32_t3 toEye = normalize(gCamera.worldPosition - input.worldPosition);
 float32_t3 reflectLight = reflect(gDirectionalLight.direction, normalize(input.normal));
-float RdotE = dot(reflectLight.toEye);
+float RdotE = dot(reflectLight,toEye);
 float specularPow = pow(saturate(RdotE),gMaterial.shininess); //”½ŽË‹­“x
+//float specularPow = pow(saturate(RdotE),70); //”½ŽË‹­“x
+
 
 
 float NdotL = dot(normalize(input.normal), -gDirectionalLight.direction);
